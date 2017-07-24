@@ -15,8 +15,8 @@ $(document).ready(() => {
                 <p>Release Year: ${data[i].release}</p>
               </div>
               <div class="card-action">
-                <a href="#">Edit</a>
-                <a href="#">Delete</a>
+                <a href="#" id="edit${i}">Edit</a>
+                <a href="#" id="delete${i}" >Delete</a>
               </div>
             </div>
           </div>
