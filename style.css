@@ -10,3 +10,17 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+#welcome {
+  min-height: 85vh;
+  margin-bottom: 0;
+}
+
+#welcomeButton {
+  margin-top: 40vh;
+}
+
+#cards {
+  display: none;
+  margin-bottom: 0;
+}

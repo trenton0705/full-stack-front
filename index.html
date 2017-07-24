@@ -9,23 +9,44 @@
   </head>
   <body>
 
-    <header>
+    <header class="container">
       <nav>
-        <div class="nav-wrapper blue">
+        <div class="nav-wrapper blue darken-4">
           <a href="/" class="brand-logo center" id="logo">Favorite Video Game List</a>
         </div>
       </nav>
     </header>
 
-    <main class="container">
-      <div style="background-color: powderblue; padding: 25%" class="center">
-        <ul>
-
-        </ul>
+    <main>
+      <div id="welcome" class="row container blue lighten-1">
+        <div class="col s12 m12 center">
+          <a id="welcomeButton" class="waves-effect waves-light btn green">Let's Get Started!</a>
+        </div>
       </div>
+
+      <div id="cards" class="row container blue lighten-1">
+        <div class="col s12 m12 center" style="margin-top: 1%">
+          <a href="#modal1" class="waves-effect waves-light btn green" id="addCard" style="width: 100%">Add Card</a>
+        </div>
+      </div>
+
     </main>
 
-    <footer class="page-footer blue">
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>New Card</h4>
+        <form class="" action="" method="post">
+          <input type="text" name="" value="" placeholder="GAME">
+          <input type="text" name="" value="" placeholder="PUBLISHER">
+          <input type="text" name="" value="" placeholder="RELEASE YEAR">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+      </div>
+    </div>
+
+    <footer class="page-footer blue darken-4 container">
       <div class="footer-copyright center">
         <div class="container">
           © 2017 Copyright Trenton Wuerker
