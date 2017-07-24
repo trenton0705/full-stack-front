@@ -1,0 +1,12 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: "Play";
+  background: url('http://cdn.wallpapersafari.com/98/6/IbB9RY.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+main {
+  flex: 1 0 auto;
+}
