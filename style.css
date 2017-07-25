@@ -23,4 +23,5 @@ main {
 #cards {
   display: none;
   margin-bottom: 0;
+  min-height: 85vh;
 }

@@ -20,7 +20,13 @@
     <main>
       <div id="welcome" class="row container blue lighten-1">
         <div class="col s12 m12 center">
-          <a id="welcomeButton" class="waves-effect waves-light btn green" style="width:50%">Let's Get Started!</a>
+          <a id="welcomeButton" class="waves-effect waves-light btn green" style="width:50%">See All Cards</a>
+        </div>
+        <div class="center">
+          <form class="" action="index.html" method="post">
+            <input id="searchBox" type="text" name="" value="" placeholder="Enter ID Here" style="width:10%">
+            <a id="specificButton" class="waves-effect waves-light btn orange" style="width:25%">See specific card</a>
+          </form>
         </div>
       </div>
 
@@ -34,13 +40,13 @@
         <div class="modal-content">
           <h4>New Card</h4>
           <form class="" action="" method="post">
-            <input type="text" name="" value="" placeholder="GAME">
-            <input type="text" name="" value="" placeholder="PUBLISHER">
-            <input type="text" name="" value="" placeholder="RELEASE YEAR">
+            <input id="formGame" type="text" name="" value="" placeholder="GAME">
+            <input id="formPub" type="text" name="" value="" placeholder="PUBLISHER">
+            <input id="formYear" type="text" name="" value="" placeholder="RELEASE YEAR">
           </form>
         </div>
         <div class="modal-footer">
-          <a class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+          <a id="formSubmit" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
         </div>
       </div>
 
