@@ -25,7 +25,7 @@ $('#welcomeButton').click(function() {
 })
 
 $('#specificButton').click(() => {
-  let id = parseInt($('#searchBox').val())
+  let id = $('#searchBox').val()
   $.get(`https://quiet-badlands-94685.herokuapp.com/games/${id}`).then((data) => {
     if (data.length != 0) {
       $('#cards').append(`
@@ -78,6 +78,8 @@ $('#formSubmit').click(function() {
             </div>
         `)
       })
+    }).catch((data) => {
+      alert(data.responseJSON.message)
     })
   } else {
     alert('Please don\'t leave any fields blank.')
