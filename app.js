@@ -9,17 +9,13 @@ $('#welcomeButton').click(function () {
   .then((data) => {
     for (var i = 0; i < data.length; i++) {
       $('#cards').append(`
-          <div class="col s12 m6">
+          <div id="card${data[i].id}" class="col s12 m6">
             <div class="card blue-grey darken-1">
               <div class="card-content white-text">
-                <span class="card-title">${data[i].name}</span>
-                <p>Published by: ${data[i].publisher}</p>
-                <p>Release Year: ${data[i].release}</p>
+                <span id="name${data[i].id}" class="card-title">${data[i].name}</span>
+                <p id="pub${data[i].id}">Published by: ${data[i].publisher}</p>
+                <p id="year${data[i].id}">Release Year: ${data[i].release}</p>
                 <p>ID: ${data[i].id} </p>
-              </div>
-              <div class="card-action">
-                <a href="#" id="edit${data[i].id}">Edit</a>
-                <a href="#" id="delete${data[i].id}" >Delete</a>
               </div>
             </div>
           </div>
@@ -35,16 +31,13 @@ $('#specificButton').click(() => {
   $.get(`https://quiet-badlands-94685.herokuapp.com/games/${id}`).then((data) => {
     console.log(data);
     $('#cards').append(`
-        <div class="col s12 m6">
+        <div id="card${data[0].id}" class="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">${data[0].name}</span>
               <p>Published by: ${data[0].publisher}</p>
               <p>Release Year: ${data[0].release}</p>
-            </div>
-            <div class="card-action">
-              <a href="#" id="edit${data[0].id}">Edit</a>
-              <a href="#" id="delete${data[0].id}" >Delete</a>
+              <p>ID: ${data[0].id} </p>
             </div>
           </div>
         </div>
@@ -55,7 +48,6 @@ $('#specificButton').click(() => {
 })
 
 $('#addCard').click(function () {
-  console.log('hello');
   $('#modal1').modal('open')
 })
 
@@ -64,23 +56,53 @@ $('#formSubmit').click(function () {
   let publisher = $('#formPub').val()
   let release = $('#formYear').val()
   let postData = {name: name, publisher: publisher, release: release}
+
   $.post('https://quiet-badlands-94685.herokuapp.com/games', postData).then((id) => {
     $.get(`https://quiet-badlands-94685.herokuapp.com/games/${id}`).then((data) => {
       $('#cards').append(`
-          <div class="col s12 m6">
+          <div id="card${data[0].id}" class="col s12 m6">
             <div class="card blue-grey darken-1">
               <div class="card-content white-text">
                 <span class="card-title">${data[0].name}</span>
                 <p>Published by: ${data[0].publisher}</p>
                 <p>Release Year: ${data[0].release}</p>
-              </div>
-              <div class="card-action">
-                <a href="#" id="edit${data[0].id}">Edit</a>
-                <a href="#" id="delete${data[0].id}" >Delete</a>
+                <p>ID: ${data[0].id} </p>
               </div>
             </div>
           </div>
       `)
     })
+  })
+})
+
+$('#editCard').click(function () {
+  $('#modal2').modal('open')
+})
+
+$('#formSubmit2').click(function () {
+  let id = $('#formId2').val()
+  let name = $('#formGame2').val()
+  let publisher = $('#formPub2').val()
+  let release = $('#formYear2').val()
+  let putData = {name: name, publisher: publisher, release: release}
+
+  $.ajax({
+    url: `https://quiet-badlands-94685.herokuapp.com/games/${id}`,
+    type: 'PUT',
+    data: putData
+  }).then((data) => {
+    $(`#card${id}`).remove()
+    $('#cards').append(`
+        <div id="card${data[0].id}" class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">${data[0].name}</span>
+              <p>Published by: ${data[0].publisher}</p>
+              <p>Release Year: ${data[0].release}</p>
+              <p>ID: ${data[0].id} </p>
+            </div>
+          </div>
+        </div>
+    `)
   })
 })
