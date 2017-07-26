@@ -106,3 +106,18 @@ $('#formSubmit2').click(function () {
     `)
   })
 })
+
+$('#deleteCard').click(function () {
+  $('#modal3').modal('open')
+})
+
+$('#formSubmit3').click(function () {
+  let id = $('#formId3').val()
+
+  $.ajax({
+    url: `https://quiet-badlands-94685.herokuapp.com/games/${id}`,
+    type: 'DELETE'
+  })
+
+  $(`#card${id}`).remove()
+})
